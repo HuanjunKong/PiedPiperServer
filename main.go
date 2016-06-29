@@ -1,6 +1,9 @@
 package main
 
-import "github.com/kataras/iris"
+import (
+	"github.com/PiedPiperServer/conf"
+	"github.com/kataras/iris"
+)
 
 func main() {
 	iris.Get("/hi_json", func(c *iris.Context) {
@@ -11,5 +14,5 @@ func main() {
 			"Stars": 3693,
 		})
 	})
-	iris.Listen(":8080")
+	iris.Listen(":" + conf.ServiceConfig.HttpPort)
 }
